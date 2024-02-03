@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine's Day Proposal</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Will you be my Valentine?</h1>
+    <button id="yesBtn" onclick="window.location.href='response.html';">Yes</button>
+    <button id="noBtn">No</button>
+    <div id="response"></div>
+</div>
+
+<script>
+document.getElementById("yesBtn").addEventListener("click", function() {
+    document.getElementById("response").innerText = "Can't wait to see you!";
+});
+
+document.getElementById("noBtn").addEventListener("click", function() {
+    var responses = [
+        "Are you sure?",
+        "Do you really wanna hurt me?",
+        "Think again, please?",
+        "Let's try this again?",
+        "Is there a chance?"
+    ];
+    var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+    document.getElementById("response").innerText = randomResponse;
+
+    // Increase size of the Yes button
+    var yesButton = document.getElementById("yesBtn");
+    var currentSize = parseFloat(window.getComputedStyle(yesButton, null).getPropertyValue('font-size'));
+    yesButton.style.fontSize = (currentSize + 1) + 'px';
+});
+</script>
+</body>
+</html>
